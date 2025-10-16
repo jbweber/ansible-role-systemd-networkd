@@ -1,0 +1,6 @@
+*.retry
+*.pyc
+__pycache__/
+.pytest_cache/
+tests/test.retry
+.vagrant/
