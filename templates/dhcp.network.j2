@@ -5,6 +5,11 @@ Name={{ item.interface_name }}
 
 [Network]
 DHCP=yes
+{% if item.vlans is defined %}
+{% for vlan in item.vlans %}
+VLAN={{ vlan }}
+{% endfor %}
+{% endif %}
 
 [DHCPv4]
 Hostname={{ inventory_hostname }}

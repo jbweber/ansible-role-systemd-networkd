@@ -1,0 +1,18 @@
+# {{ ansible_managed }}
+
+[Match]
+Name={{ item.interface_name }}
+
+[Network]
+{% if item.bridge_name is defined and item.bridge_name != '' %}
+Bridge={{ item.bridge_name }}
+{% endif %}
+{% if item.ipv4_address is defined and item.ipv4_address != '' %}
+Address={{ item.ipv4_address }}/{{ item.ipv4_prefix }}
+{% endif %}
+{% if item.ipv4_gateway is defined and item.ipv4_gateway != '' %}
+Gateway={{ item.ipv4_gateway }}
+{% endif %}
+{% if item.ipv4_forwarding is defined and item.ipv4_forwarding %}
+IPV4Forwarding=yes
+{% endif %}

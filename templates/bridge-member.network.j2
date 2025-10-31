@@ -5,3 +5,8 @@ Name={{ item.interface_name }}
 
 [Network]
 Bridge={{ item.bridge_name }}
+{% if item.vlans is defined %}
+{% for vlan in item.vlans %}
+VLAN={{ vlan }}
+{% endfor %}
+{% endif %}
